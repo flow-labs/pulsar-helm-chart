@@ -1,0 +1,42 @@
+# Use this to create the nodegroup for pulsar
+# It sets important config that is required for pulsar.
+# deploy using eksctl create nodegroup --config-file flow_labs_charts/dev/node_group.yaml
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: Pulsar
+  region: us-west-2
+
+vpc:
+  id: "vpc-4a39ab32"
+  securityGroup: eks-cluster-sg-TimescaleDB-1677071429
+  subnets:
+    public:
+      us-west-2d:
+        id: "subnet-4a671661"
+      us-west-2c:
+        id: "subnet-bf44bae2"
+
+
+managedNodeGroups:
+  - name: Pulsar-Nodes-Dev-5
+    instanceType: t3.xlarge
+    minSize: 0
+    maxSize: 4
+    desiredCapacity: 1
+    volumeSize: 50
+    availabilityZones: ["us-west-2d"]
+    iam:
+      withAddonPolicies:
+        autoScaler: true
+        externalDNS: true
+        certManager: true
+        appMesh: true
+        appMeshPreview: true
+        ebs: true
+        fsx: true
+        efs: true
+        awsLoadBalancerController: true
+        xRay: true
+        cloudWatch: true
