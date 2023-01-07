@@ -43,6 +43,13 @@ components:
   # pulsar manager
   pulsar_manager: false
 
+images:
+  proxy:
+    repository: apachepulsar/pulsar-all
+    # uses defaultPulsarImageTag when unspecified
+    tag: 2.8.4
+    pullPolicy: IfNotPresent
+
 kube-prometheus-stack:
   enabled: true
   prometheus:
