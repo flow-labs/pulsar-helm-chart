@@ -10,7 +10,7 @@ metadata:
 
 vpc:
   id: "vpc-4a39ab32"
-  securityGroup: eks-cluster-sg-TimescaleDB-1677071429
+  securityGroup: "eks-cluster-sg-Pulsar-1893252195"
   subnets:
     public:
       us-west-2d:
@@ -27,6 +27,8 @@ managedNodeGroups:
     desiredCapacity: 1
     volumeSize: 50
     availabilityZones: ["us-west-2d"]
+    securityGroups:
+      attachIDs: [ "sg-08d2357dd75f5219e" ]
     iam:
       withAddonPolicies:
         autoScaler: true

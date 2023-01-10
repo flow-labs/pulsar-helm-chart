@@ -18,10 +18,6 @@ affinity:
 
 volumes:
   persistence: true
-  # configure the components to use local persistent volume
-  # the local provisioner should be installed prior to enable local persistent volume
-  # We currently don't store data longterm in our pulsar. So we don't currently need local storage. However if
-  # we do want the data to be persistent then we can enable it here.
   local_storage: false
 
 
@@ -35,7 +31,7 @@ components:
   # broker
   broker: true
   # functions
-  functions: false # enabling this with tls is broken. Not sure what it does or if we will need it. TODO
+  functions: true # enabling this with tls is broken. Not sure what it does or if we will need it. TODO
   # proxy
   proxy: true
   # toolset
@@ -49,17 +45,42 @@ images:
     # uses defaultPulsarImageTag when unspecified
     tag: 2.8.4
     pullPolicy: IfNotPresent
+#  pulsar_manager:
+#    repository: apachepulsar/pulsar-manager
+#    tag: v0.2.0
+#    pullPolicy: IfNotPresent
+#    hasCommand: false
 
 kube-prometheus-stack:
   enabled: true
   prometheus:
     enabled: true
+    service:
+      type: LoadBalancer
   grafana:
+#    namespace: grafana
     enabled: true
+    adminPassword: 'abcd1234'
+    service:
+      type: LoadBalancer
   prometheus-node-exporter:
     enabled: true
   alertmanager:
     enabled: false
+
+
+#prometheus:
+#
+#  enabled: true
+#
+#  ## Configuration for Prometheus service
+#  ##
+#  service:
+#    ## Service type
+#    ##
+#    type: ClusterIP
+
+
 
 zookeeper:
   replicaCount: 1
@@ -95,7 +116,7 @@ proxy:
 
 
 
-# enable TLS
+
 tls:
   enabled: true
   proxy:
@@ -106,6 +127,16 @@ tls:
     enabled: true
   zookeeper:
     enabled: true
+#tls:
+#  enabled: false
+#  proxy:
+#    enabled: false
+#  broker:
+#    enabled: false
+#  bookie:
+#    enabled: false
+#  zookeeper:
+#    enabled: false
 
 # issue selfsigning certs
 certs:
