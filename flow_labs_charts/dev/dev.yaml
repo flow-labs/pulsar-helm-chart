@@ -31,7 +31,7 @@ components:
   # broker
   broker: true
   # functions
-  functions: true # enabling this with tls is broken. Not sure what it does or if we will need it. TODO
+  functions: false # enabling this with tls is broken. Not sure what it does or if we will need it. TODO
   # proxy
   proxy: true
   # toolset
@@ -93,7 +93,7 @@ zookeeper:
       storageClassName: pulsar-storage
 
 bookkeeper:
-  replicaCount: 1
+  replicaCount: 2
   affinity:
     anti_affinity: false
   volumes:
@@ -104,7 +104,7 @@ bookkeeper:
       storageClassName: pulsar-storage
 
 broker:
-  replicaCount: 1
+  replicaCount: 2
   affinity:
     anti_affinity: false
 

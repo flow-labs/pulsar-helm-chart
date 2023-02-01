@@ -73,6 +73,7 @@ Loadbalancers will be automatically deployed for prometheus and grafana. You can
     kubectl get services
 ```
 
+Route 53 has been configured to forward pulsar-dev-grafana.flowlabs.info and pulsar-dev-prometheus.flowlabs.info to the external ip. However if the ip changes then these will need to be reset.
 The default username and password for grafana is in the yaml file. It is currently admin:abcd1234. Be sure to log in and change the password after deploying.
 
 # Deleting
