@@ -9,7 +9,7 @@ initialize: true
 # made affinity preferred.
 # Note: you need to also set this for each component or else the global value will be overwritten by the default.
 affinity:
-  anti_affinity: false
+  anti_affinity: true
   type: requiredDuringSchedulingIgnoredDuringExecution
 
 
@@ -110,7 +110,7 @@ broker:
 
 
 proxy:
-  replicaCount: 1
+  replicaCount: 2
   affinity:
     anti_affinity: false
 

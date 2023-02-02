@@ -44,6 +44,8 @@ This will output commands that you can use to see the auth private key for use i
     helm install pulsar-dev -f flow_labs_charts/dev/dev.yaml apache/pulsar   
 ```
 
+Warning. On the first install, initialization can take up to 10 minutes. 
+
 
 
 # Updating or changing deployment config
