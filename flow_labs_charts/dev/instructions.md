@@ -54,6 +54,11 @@ Before running this, you might have to manually delete some things depending on 
     helm upgrade pulsar-dev -f flow_labs_charts/dev/dev.yaml apache/pulsar   
 ```
 
+# Administration
+Use the pulsar admin rest api when you can. A secondary option is to use the pulsar-admin program. You can use kubernetes to access the toolset pod with a command like the following:
+```bash
+kubectl exec -it -n pulsar pulsar-mini-toolset-0 -- /bin/bash
+```
 
 # Usage
 

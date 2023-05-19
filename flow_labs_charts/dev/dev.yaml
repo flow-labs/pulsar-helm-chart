@@ -99,8 +99,10 @@ bookkeeper:
   volumes:
     persistence: true
     journal:
+      size: 50Gi
       storageClassName: pulsar-storage
     ledgers:
+      size: 1000Gi
       storageClassName: pulsar-storage
 
 broker:
