@@ -93,7 +93,7 @@ zookeeper:
       storageClassName: pulsar-storage
 
 bookkeeper:
-  replicaCount: 2
+  replicaCount: 3
   affinity:
     anti_affinity: false
   volumes:
@@ -106,13 +106,13 @@ bookkeeper:
       storageClassName: pulsar-storage
 
 broker:
-  replicaCount: 2
+  replicaCount: 3
   affinity:
     anti_affinity: false
 
 
 proxy:
-  replicaCount: 2
+  replicaCount: 3
   affinity:
     anti_affinity: false
 

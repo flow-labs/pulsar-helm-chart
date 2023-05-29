@@ -20,11 +20,11 @@ vpc:
 
 
 managedNodeGroups:
-  - name: Pulsar-Nodes-Dev-5
-    instanceType: t3.xlarge
+  - name: Pulsar-Nodes-Dev-6
+    instanceType: t3.2xlarge
     minSize: 0
     maxSize: 4
-    desiredCapacity: 1
+    desiredCapacity: 3
     volumeSize: 50
     availabilityZones: ["us-west-2d"]
     securityGroups:
