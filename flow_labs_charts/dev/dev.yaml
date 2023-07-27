@@ -109,6 +109,10 @@ broker:
   replicaCount: 3
   affinity:
     anti_affinity: false
+  configData:
+    systemTopicEnabled: true
+    topicLevelPoliciesEnabled: true
+    maxMessageSize: 300000000
 
 
 proxy:
