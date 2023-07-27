@@ -110,9 +110,9 @@ broker:
   affinity:
     anti_affinity: false
   configData:
-    systemTopicEnabled: true
-    topicLevelPoliciesEnabled: true
-    maxMessageSize: 300000000
+    systemTopicEnabled: 'true'
+    topicLevelPoliciesEnabled: 'true'
+    maxMessageSize: '300000000'
 
 
 proxy:
