@@ -41,7 +41,7 @@ This will automatically set up a few required things such as ebs csi driver perm
 This will output commands that you can use to see the auth private key for use in clients.
 
 ```bash
-    helm install pulsar-dev -f flow_labs_charts/dev/dev.yaml apache/pulsar   
+    `helm install pulsar-dev -f flow_labs_charts/dev/dev.yaml apache/pulsar  ` 
 ```
 
 Warning. On the first install, initialization can take up to 10 minutes. 
