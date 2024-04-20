@@ -94,12 +94,6 @@ zookeeper:
 
 bookkeeper:
   replicaCount: 3
-  configData:
-    # we use `bin/pulsar` for starting bookie daemons
-    PULSAR_MEM: >
-      -Xms1g
-      -Xmx2g
-      -XX:MaxDirectMemorySize=2g
   affinity:
     anti_affinity: false
   volumes:
@@ -119,6 +113,9 @@ broker:
     systemTopicEnabled: 'true'
     topicLevelPoliciesEnabled: 'true'
     maxMessageSize: '300000000'
+    # we use `bin/pulsar` for starting bookie daemons
+    PULSAR_MEM: >
+          -Xms256m -Xmx512m -XX:MaxDirectMemorySize=512m
 
 
 proxy:
